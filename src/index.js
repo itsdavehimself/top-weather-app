@@ -9,6 +9,7 @@ search.classList.add('search-icon');
 search.src = searchIcon;
 searchBtn.appendChild(search);
 
+getWeather('Chicago');
 
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
