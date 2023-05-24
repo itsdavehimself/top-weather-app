@@ -12,10 +12,17 @@ function renderWeather() {
   precipDiv.replaceChildren();
   const locationDisplay = document.createElement('p');
   const tempDisplay = document.createElement('p');
+  const conditionImg = document.createElement('img');
   const conditionDisplay = document.createElement('p');
   const feelsLike = document.createElement('p');
   const humidityDisplay = document.createElement('p');
   const precipDisplay = document.createElement('p');
+
+  locationDisplay.textContent = `${weatherArr[0].location}`;
+  conditionDisplay.textContent = `${weatherArr[0].condition}`
+  humidityDisplay.textContent = `Humidity ${weatherArr[0].humidity}%`;
+  conditionImg.classList.add('condition-img')
+  conditionImg.src = `http://${weatherArr[0].conditionIcon}`;
 
   if (!isCelcius) {
     tempDisplay.textContent = `${weatherArr[0].tempF}\u00B0 F`;
@@ -27,13 +34,11 @@ function renderWeather() {
     precipDisplay.textContent = `Precipitation ${weatherArr[0].precipMM} mm`;
   }
 
-  locationDisplay.textContent = `${weatherArr[0].location}`;
   weatherDiv.appendChild(locationDisplay);
   weatherDiv.appendChild(tempDisplay);
-  conditionDisplay.textContent = `${weatherArr[0].condition}`
   weatherDiv.appendChild(conditionDisplay);
+  weatherDiv.appendChild(conditionImg);
   weatherDiv.appendChild(feelsLike);
-  humidityDisplay.textContent = `Humidity ${weatherArr[0].humidity}%`;
   humidityDiv.appendChild(humidityDisplay);
   precipDiv.appendChild(precipDisplay);
 }

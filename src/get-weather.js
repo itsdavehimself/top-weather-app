@@ -12,13 +12,13 @@ async function getWeather(locationInput) {
     const tempF = weatherData.current.temp_f;
     const tempC = weatherData.current.temp_c;
     const condition = weatherData.current.condition.text;
-    const conditionCode = weatherData.current.condition.code;
+    const conditionIcon = (weatherData.current.condition.icon).slice(2);
     const feelsLikeF = weatherData.current.feelslike_f;
     const feelsLikeC = weatherData.current.feelslike_c;
     const {humidity} = weatherData.current;
     const precipIn = weatherData.current.precip_in;
     const precipMM = weatherData.current.precip_mm;
-    weatherFactory(location, isDay, cloud, tempF, tempC, condition, conditionCode, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM);
+    weatherFactory(location, isDay, cloud, tempF, tempC, condition, conditionIcon, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM);
     renderWeather();
   } catch(error) {
     console.log(error);
