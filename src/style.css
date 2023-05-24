@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-Thin.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-ExtraLight.ttf);
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-SemiBold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(./Inter-ExtraBold.ttf);
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Inter';
+  margin: 0;
+  height: 100vh;
+}
+
+p {
+  margin: 0;
+}
+
+.main {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index: 1;
+}
+
+.main::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #076585;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #fff, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  z-index: -1;
+  transition: opacity 0.3s cubic-bezier(0.05, 0.64, 0.57, 0.95);
+  opacity: 0;
+}
+
+.main.day::before {
+  opacity: 1;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: 24px 36px 1fr 1fr;
+  height: 500px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  box-shadow: 1px 1px 12px 3px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  gap: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+input {
+  height: 24px;
+  width: 300px;
+  border-radius: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.0);
+  font-size: 1rem;
+  transition: .4s;
+  color: rgba(51, 51, 51, 0.8);
+  font-weight: 800;
+  padding-left: 8px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid rgba(51, 51, 51, 0.8);
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.1);
+  font-weight: 800;
+}
+
+input::placeholder:focus {
+  content: "";
+}
+
+button {
+  height: 24px;
+  width: 24px;
+}
+
+.toggle-div {
+  display: grid;
+  justify-content: end;
+  height: 36px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.weather-info {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.secondary-weather-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.humidity-info {
+  text-align: center;
+}
+
+.precipitation-info {
+  text-align: center;
+}
+
+.condition-img {
+  height: 64px;
+  width: 64px;
+}
