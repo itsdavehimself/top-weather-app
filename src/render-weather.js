@@ -4,7 +4,7 @@ const mainDiv = document.querySelector('.main');
 const weatherDiv = document.querySelector('.weather-info');
 const humidityDiv = document.querySelector('.humidity-info');
 const precipDiv = document.querySelector('.precipitation-info');
-const toggleCelciusBtn = document.querySelector('.slider.round');
+const toggleCelciusBtn = document.querySelector('.labels');
 let isCelcius = false;
 
 function renderWeather() {
