@@ -8,5 +8,6 @@ searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const locationInput = input.value;
   input.value = '';
+  input.blur();
   getWeather(locationInput);
 });
