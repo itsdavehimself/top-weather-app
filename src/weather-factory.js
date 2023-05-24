@@ -1,12 +1,14 @@
 const weatherArr = [];
 
-function weatherFactory(location, cloud, tempF, tempC, condition, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM) {
+function weatherFactory(location, isDay, cloud, tempF, tempC, condition, conditionCode, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM) {
   const weather = {
     location,
+    isDay,
     cloud,
     tempF,
     tempC,
     condition,
+    conditionCode,
     feelsLikeF,
     feelsLikeC,
     humidity,
