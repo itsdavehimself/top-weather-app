@@ -40,7 +40,7 @@ function renderWeather() {
   humidityTitle.textContent = 'Humidity';
   humidityDisplay.textContent = `${weatherArr[0].humidity}%`
   conditionImg.classList.add('condition-img')
-  conditionImg.src = `http://${weatherArr[0].conditionIcon}`;
+  conditionImg.src = `https://${weatherArr[0].conditionIcon}`;
   degree.textContent = `\u00B0`;
 
   if (!isCelcius) {
