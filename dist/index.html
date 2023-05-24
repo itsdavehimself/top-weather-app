@@ -7,11 +7,30 @@
   <title>Weather App</title>
 </head>
 <body>
-  <form class="location-form">
-    <label for="location"></label>
-    <input type="text" class="location" id="location" name="location">
-    <button class="search">Search</button>
-  </form>
+  <div class="main">
+    <div class="app">
+      <div class="toggle-div">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+          <span class="labels" data-f="F" data-c="C"></span>
+        </label>
+      </div>
+      <form class="location-form">
+        <label for="location"></label>
+        <input type="text" class="location" id="location" name="location" placeholder="Search location" autocomplete="off">
+        <button class="search"></button>
+      </form>
+      <div class="weather-info">
+      </div>
+      <div class="secondary-weather-info">
+        <div class="humidity-info">
+        </div>
+        <div class="precipitation-info">
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
