@@ -7,5 +7,6 @@ const searchBtn = document.querySelector('.search');
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const locationInput = input.value;
+  input.value = '';
   getWeather(locationInput);
 });
