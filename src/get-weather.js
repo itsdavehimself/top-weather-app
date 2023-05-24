@@ -1,4 +1,5 @@
-import { weatherArr, weatherFactory } from './weather-factory';
+import renderWeather from './render-weather';
+import { weatherFactory } from './weather-factory';
 
 async function getWeather(locationInput) {
   try {
@@ -7,16 +8,18 @@ async function getWeather(locationInput) {
     console.log(weatherData);
     const location = weatherData.location.name;
     const {cloud} = weatherData.current;
+    const isDay = weatherData.current.is_day;
     const tempF = weatherData.current.temp_f;
     const tempC = weatherData.current.temp_c;
     const condition = weatherData.current.condition.text;
+    const conditionCode = weatherData.current.condition.code;
     const feelsLikeF = weatherData.current.feelslike_f;
     const feelsLikeC = weatherData.current.feelslike_c;
     const {humidity} = weatherData.current;
     const precipIn = weatherData.current.precip_in;
     const precipMM = weatherData.current.precip_mm;
-    weatherFactory(location, cloud, tempF, tempC, condition, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM);
-    console.log(weatherArr[0]);
+    weatherFactory(location, isDay, cloud, tempF, tempC, condition, conditionCode, feelsLikeF, feelsLikeC, humidity, precipIn, precipMM);
+    renderWeather();
   } catch(error) {
     console.log(error);
   }
