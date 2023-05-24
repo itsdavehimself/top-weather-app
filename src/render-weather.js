@@ -1,9 +1,10 @@
 import { weatherArr } from "./weather-factory";
 
+const mainDiv = document.querySelector('.main');
 const weatherDiv = document.querySelector('.weather-info');
 const humidityDiv = document.querySelector('.humidity-info');
-const precipDiv = document.querySelector('.percipitation-info');
-const toggleCelciusBtn = document.querySelector('.toggle-cf');
+const precipDiv = document.querySelector('.precipitation-info');
+const toggleCelciusBtn = document.querySelector('.slider.round');
 let isCelcius = false;
 
 function renderWeather() {
@@ -15,23 +16,44 @@ function renderWeather() {
   const conditionImg = document.createElement('img');
   const conditionDisplay = document.createElement('p');
   const feelsLike = document.createElement('p');
+  const humidityTitle = document.createElement('p');
   const humidityDisplay = document.createElement('p');
+  const precipTitle = document.createElement('p');
   const precipDisplay = document.createElement('p');
+
+  locationDisplay.classList.add('location-title');
+  tempDisplay.classList.add('temp-display');
+  conditionDisplay.classList.add('condition-display');
+  feelsLike.classList.add('feels-like');
+  humidityTitle.classList.add('humidity-title');
+  humidityDisplay.classList.add('humidity-display');
+  precipTitle.classList.add('precipitation-title');
+  precipDisplay.classList.add('precipitation-display');
+
 
   locationDisplay.textContent = `${weatherArr[0].location}`;
   conditionDisplay.textContent = `${weatherArr[0].condition}`
-  humidityDisplay.textContent = `Humidity ${weatherArr[0].humidity}%`;
+  humidityTitle.textContent = 'Humidity';
+  humidityDisplay.textContent = `${weatherArr[0].humidity}%`
   conditionImg.classList.add('condition-img')
   conditionImg.src = `http://${weatherArr[0].conditionIcon}`;
 
   if (!isCelcius) {
     tempDisplay.textContent = `${weatherArr[0].tempF}\u00B0 F`;
     feelsLike.textContent = `Feels like ${weatherArr[0].feelsLikeF}\u00B0 F`;
-    precipDisplay.textContent = `Precipitation ${weatherArr[0].precipIn} in.`;
+    precipTitle.textContent = 'Precipitation';
+    precipDisplay.textContent = `${weatherArr[0].precipIn} in.`;
   } else {
     tempDisplay.textContent = `${weatherArr[0].tempC}\u00B0 C`;
     feelsLike.textContent = `Feels like ${weatherArr[0].feelsLikeC}\u00B0 C`;
-    precipDisplay.textContent = `Precipitation ${weatherArr[0].precipMM} mm`;
+    precipTitle.textContent = 'Precipitation';
+    precipDisplay.textContent = `${weatherArr[0].precipMM} mm`;
+  }
+
+  if (weatherArr[0].isDay === 1) {
+    mainDiv.classList.add('day');
+  } else {
+    mainDiv.classList.remove('day');
   }
 
   weatherDiv.appendChild(locationDisplay);
@@ -39,7 +61,9 @@ function renderWeather() {
   weatherDiv.appendChild(conditionDisplay);
   weatherDiv.appendChild(conditionImg);
   weatherDiv.appendChild(feelsLike);
+  humidityDiv.appendChild(humidityTitle);
   humidityDiv.appendChild(humidityDisplay);
+  precipDiv.appendChild(precipTitle);
   precipDiv.appendChild(precipDisplay);
 }
 
